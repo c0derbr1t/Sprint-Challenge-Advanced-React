@@ -24,7 +24,7 @@ test("App renders without crashing.", () => {
 //   expect(getByTestID("title")).not.toBeNaN();
 // })
 
-test("App includes the words 'Google Trends'.", () => {
-  const wrap = render(<App />);
-  expect(wrap.getAllByAltText(/google trends/i));
-})
+// test("App includes the words 'Google Trends'.", () => {
+//   const wrap = render(<App />);
+//   expect(wrap.getAllByAltText(/google trends/i));
+// })

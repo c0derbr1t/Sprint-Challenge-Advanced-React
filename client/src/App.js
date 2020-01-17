@@ -1,26 +1,42 @@
 import React from 'react';
-import logo from './logo.svg';
+import axios from 'axios';
+
+import Mode from './components/Mode';
+import Cards from './components/Cards';
+
 import './App.css';
 
-function App() {
+class App extends React.Component {
+  state = {
+    playerData: []
+  }
+
+  componentDidMount() {
+    axios
+      .get('http://localhost:5000/api/players/')
+      .then(res => {
+        console.log(res.data);
+        this.setState({
+          playerData: res.data
+        })})
+      .catch(err => console.log(err));
+  }
+
+  render() {
   return (
     <div className="App">
+      <Mode />
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Women's World Cup Players</h1>
+        <h3>The following women are the Women's World Cup players, ranked by search interest from Google Trends from June-July 2019, worldwide.</h3>
       </header>
+      <div>
+        <Cards playerData={this.state.playerData} />
+      </div>
+      <footer><a href="https://googletrends.github.io/data/">Click here to find more data trends like this!</a></footer>
     </div>
   );
+  }
 }
 
 export default App;

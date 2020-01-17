@@ -12,8 +12,19 @@ test("App renders without crashing.", () => {
 //   expect(hasText).toBeInTheDocument();
 // })
 
-test("Contains a mode button", () => {
-  const { getByTestId } = render(<App />);
+// test("Contains a mode button", () => {
+//   const { getByTestId } = render(<App />);
 
-  getByTestId(/mode-btn/i);
+//   getByTestId(/mode-btn/i);
+// })
+
+// test("Title is NaN", () => {
+//   const { getByTestID } = render(<App />);
+
+//   expect(getByTestID("title")).not.toBeNaN();
+// })
+
+test("App includes the words 'Google Trends'.", () => {
+  const wrap = render(<App />);
+  expect(wrap.getAllByAltText(/google trends/i));
 })

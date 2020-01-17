@@ -30,7 +30,7 @@ class App extends React.Component {
       </div>
       
       <header className="App-header">
-        <h1>Women's World Cup Players</h1>
+        <h1 data-testid="title">Women's World Cup Players</h1>
         <h3>The following women are the Women's World Cup players, ranked by search interest from Google Trends from June-July 2019, worldwide.</h3>
       </header>
       <div>
